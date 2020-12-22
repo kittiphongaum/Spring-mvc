@@ -1,6 +1,7 @@
 package com.hillert.model;
 
 public class StudentBean {
+
 	private int StId;
 	private String StIdcard;
 	private String StFname;

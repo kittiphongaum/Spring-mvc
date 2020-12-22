@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<%@include file="nav.jsp"%>
+<%--	<%@include file="nav.jsp"%>--%>
 	<div class="container">
 		<form name="login" action="login" method="post">
 			<div class="panel panel-primary" style="margin-top: 15%">

@@ -44,6 +44,37 @@ public class LoginDao {
 
 		return bean;
 	}
+	public LoginBean loginByRow(String idCard, String password, String roleId) {
+		LoginBean bean = new LoginBean();
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append(" SELECT * FROM tbl_login WHERE log_username = ? AND log_password = ? ");
+			sql.append(" AND log_role = ? AND log_status = 'A' ");
+
+			prepared = con.openConnect().prepareStatement(sql.toString());
+			prepared.setString(1, idCard);
+			prepared.setString(2, password);
+			prepared.setString(3, roleId);
+
+			ResultSet rs = prepared.executeQuery();
+
+			while (rs.next()) {
+				bean.setLogId(rs.getInt("log_id"));
+				bean.setLogUsername(rs.getString("log_username"));
+				bean.setLogPassword(rs.getString("log_password"));
+				bean.setLogRole(rs.getString("log_role"));
+				bean.setLogStatus(rs.getString("log_status"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return bean;
+	}
 
 	public List<LoginBean> findAll() {
 		List<LoginBean> list = new ArrayList<>();

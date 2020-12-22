@@ -75,11 +75,12 @@ public class StudentController {
 		}
 		return "update";
 	}
-	@RequestMapping("/update")
+	@RequestMapping("/update-data")
 	public String update(Model model,@ModelAttribute("SpringWeb")StudentBean student) {	
 		StudentBean bean = new StudentBean();
 		try {
 			studentDao.update(student);
+
 			bean = studentDao.findByidCard(student.getStIdcard());
 			model.addAttribute("resultBean", bean);
 			model.addAttribute("messesUpdate", "S");
@@ -106,5 +107,20 @@ public class StudentController {
 		}
 		return "welcome";
 	}
-	
+	@RequestMapping( value = "/gotoProfile" , method = RequestMethod.POST)
+	public String gotoProfile(Model model,String stIdcard) {
+		StudentBean bean = new StudentBean();
+		try {
+			bean = studentDao.findByidCard(stIdcard);
+			if(bean.getStIdcard() != null) {
+				model.addAttribute("messesUpdate", "");
+				model.addAttribute("resultBean", bean);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return "profile";
+	}
 }
