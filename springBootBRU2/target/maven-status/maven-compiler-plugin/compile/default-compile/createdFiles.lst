@@ -1,0 +1,16 @@
+com\hillert\controller\ProfileController.class
+com\hillert\repository\ProfileRepository.class
+com\hillert\model\LoginBean.class
+com\hillert\controller\LoginController.class
+com\hillert\model\StudentBean.class
+com\hillert\service\ProfileService.class
+com\hillert\JspDemoApplication.class
+com\hillert\controller\StudentController.class
+com\hillert\entity\ProfileEntity.class
+com\hillert\model\ProfileModel.class
+com\hillert\repository\StudentRepository.class
+com\hillert\service\StudentService.class
+com\hillert\model\ResponseData.class
+com\hillert\dao\LoginDao.class
+com\hillert\dao\StudentDao.class
+com\hillert\util\ConnectDB.class
